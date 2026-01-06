@@ -309,7 +309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuStart
   loadingPanel: {fileID: 257180893}
-  progressBar: {fileID: 257180892}
 --- !u!114 &111626072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,10 +507,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4067455885526905121, guid: 22d89d68f108934439eb4090f49ab4b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3009552294611666768, guid: 22d89d68f108934439eb4090f49ab4b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 257180898}
   m_SourcePrefab: {fileID: 100100000, guid: 22d89d68f108934439eb4090f49ab4b6, type: 3}
 --- !u!114 &257180892 stripped
 MonoBehaviour:
@@ -529,6 +535,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3009552294611666768, guid: 22d89d68f108934439eb4090f49ab4b6, type: 3}
   m_PrefabInstance: {fileID: 257180891}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &257180898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257180893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca10df69f4037b44a453ca44916bb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asyncloader
+  progressBar: {fileID: 257180892}
 --- !u!1 &355973299
 GameObject:
   m_ObjectHideFlags: 0

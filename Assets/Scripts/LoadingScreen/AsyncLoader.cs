@@ -3,33 +3,26 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-public class AsyncLoader : MonoBehaviour
+public class Asyncloader : MonoBehaviour
 {
     public Slider progressBar;
 
-    void Start()
+    public void Start()
     {
         StartCoroutine(LoadOpenWorld());
     }
 
     IEnumerator LoadOpenWorld()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync("OpenWorld");
-        operation.allowSceneActivation = false;
-
-        while (!operation.isDone)
+        AsyncOperation op = SceneManager.LoadSceneAsync("OpenWorld");
+        op.allowSceneActivation = false;
+        Debug.Log("Opening game!");
+        while (!op.isDone)
         {
-            // Progress is 0 to 0.9 before activation
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            progressBar.value = progress;
+            progressBar.value = Mathf.Clamp01(op.progress / 0.9f);
 
-            // Activate when fully loaded
-            if (operation.progress >= 0.9f)
-            {
-                // Optional delay so players can see 100%
-                yield return new WaitForSeconds(0.3f);
-                operation.allowSceneActivation = true;
-            }
+            if (op.progress >= 0.9f)
+                op.allowSceneActivation = true;
 
             yield return null;
         }
