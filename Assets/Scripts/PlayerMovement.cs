@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     Vector3 velocity;
-    bool isGrounded;
 
     CharacterController controller;
 
@@ -19,17 +18,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 2f : speed;
 
-        if (isGrounded && velocity.y < 0)
+        if (velocity.y < 0)
             velocity.y = -2f;
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        move = Vector3.ClampMagnitude(move, 1f);
+
+        controller.Move(move * moveSpeed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        Debug.Log(move.magnitude);
+
+
     }
 }
