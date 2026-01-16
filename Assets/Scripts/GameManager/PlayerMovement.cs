@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
-
+    public bool isLocked = false;
 
     Vector3 velocity;
 
@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        isLocked = true;
     }
 
     void Update()
     {
+        if (isLocked)
+            return;
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 2f : speed;
 
         if (velocity.y < 0)
@@ -33,8 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
 
-
-
+    public void Unlock()
+    {
+        isLocked = false;
     }
 }

@@ -4,6 +4,7 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
+    public PlayerMovement playerMovement;
 
     float xRotation = 0f;
 
@@ -15,6 +16,8 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        if (playerMovement.isLocked)
+            return;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
