@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda6da2f15a064b4496e8e5dcf5e47b6, type: 3}
+  m_Name: DialogueDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueDatabase
+  dialogues:
+  - id: cs01_01
+    lines:
+    - Where... am.. I?
+    - Why the hell does everything look so weird?
+  - id: npc_01_01
+    lines:
+    - Hey.
+    - Bring that cube here.
+    - "Don\u2019t lose it."
+  - id: npc_01_02
+    lines:
+    - You're back? Did you get it?
+    - Thanks, my g.
+  - id: npc_generic_01
+    lines:
+    - Hello, bro.
+  - id: npc_generic_02
+    lines:
+    - What's up?
+  - id: npc_generic_03
+    lines:
+    - Get out of my face.

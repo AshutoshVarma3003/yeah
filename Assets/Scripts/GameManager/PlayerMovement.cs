@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         isLocked = true;
+        #if UNITY_EDITOR
+                isLocked = false;
+        #endif
     }
 
     void Update()
@@ -22,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         if (isLocked)
             return;
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 2f : speed;
-
         if (velocity.y < 0)
             velocity.y = -2f;
 
